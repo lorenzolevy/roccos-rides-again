@@ -2,44 +2,51 @@
 ---
 <section
   id="hero"
-  class="text-center px-8 py-16 md:py-24 border-b border-[#111]"
+  class="text-center px-8 py-10 md:py-14"
   style="background: radial-gradient(ellipse at 50% 0%, #1a0d00 0%, #000 70%)"
 >
   <img
-    src="/logo.jpg"
+    src="/logo.png"
     alt="Rocco's Rides Again — phoenix wings logo"
     loading="lazy"
-    class="mx-auto mb-8 w-48 md:w-64"
+    class="mx-auto mb-8 w-80 md:w-[28rem]"
   />
 
-  <div class="inline-block border border-[#333] px-4 py-1 mb-5">
-    <span class="text-smoke text-[9px] tracking-[4px] uppercase">
-      From the Heart of the Bronx · Los Angeles
+  <div class="relative inline-flex items-center border border-teal px-8 py-4 mb-5">
+    <!-- top diamond -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rotate-45 bg-black border border-teal"></div>
+    <!-- bottom diamond -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 rotate-45 bg-black border border-teal"></div>
+    <span class="text-[#ddd] text-[11px] tracking-[3px] uppercase leading-relaxed block">
+      From the Heart of the Bronx<br />Los Angeles
     </span>
   </div>
 
-  <h1 class="font-serif font-black leading-[0.95] mb-4 text-5xl md:text-7xl">
+  <h1 class="font-serif font-black leading-[0.95] mb-4 text-4xl md:text-5xl">
     FRESH<br />
     <em class="italic text-white" style="letter-spacing: -1px">BRONX STYLE</em><br />
     PIZZA
   </h1>
 
-  <div class="border-t border-b border-[#1f1f1f] py-3 my-6 max-w-xs mx-auto">
-    <span class="text-smoke text-[10px] tracking-[3px] uppercase">
-      Catering&nbsp;///&nbsp;Events&nbsp;///&nbsp;Food Truck
+  <div class="border-t border-b border-[#1f1f1f] py-3 my-6 max-w-sm mx-auto">
+    <span class="text-[#ddd] text-[13px] tracking-[3px] uppercase">
+      Catering&nbsp;///&nbsp;Events&nbsp;///&nbsp;Food&nbsp;Truck
     </span>
   </div>
 
   <a
     href="#contact"
-    class="inline-block border border-fire text-fire text-[10px] tracking-[4px] uppercase px-8 py-3 hover:bg-fire hover:text-black transition-colors duration-200"
+    class="inline-block border border-fire text-fire text-[13px] tracking-[4px] uppercase px-8 py-3 hover:bg-fire hover:text-black transition-colors duration-200"
     style="box-shadow: 0 0 20px rgba(232,137,10,0.1)"
   >
     Book Your Event
   </a>
 
-  <div class="mt-8 text-[#333] text-[10px] tracking-[2px]">↓ scroll</div>
+  <div class="mt-8 text-[#888] text-[10px] tracking-[2px]">↓ scroll</div>
 </section>
 
-<!-- Section gradient bleed -->
-<div style="height: 2px; background: linear-gradient(90deg, transparent, #e8890a, #2ec4b6, transparent)"></div>
+<div class="flex items-center px-8 md:px-16 py-4">
+  <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, #2ec4b6)"></div>
+  <div class="w-2.5 h-2.5 bg-teal mx-3 rotate-45 shrink-0" style="box-shadow: 0 0 10px rgba(46,196,182,0.4)"></div>
+  <div class="flex-1 h-px" style="background: linear-gradient(90deg, #2ec4b6, transparent)"></div>
+</div>

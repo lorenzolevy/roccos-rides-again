@@ -14,7 +14,7 @@ const pizzaBase = [
 
 const pizzaToppings = [
   { name: 'VEGGIES', sm: '1.00', med: '1.75', lg: '2.00' },
-  { name: 'MEATS', desc: 'Meatball, Pepperoni, Sausage, Extra Cheese', sm: '1.00', med: '2.00', lg: '2.25' },
+  { name: 'MEATS & DAIRY', desc: 'Meatball, Pepperoni, Sausage, Extra Cheese', sm: '1.00', med: '2.00', lg: '2.25' },
 ];
 
 const specialtyItems = [
@@ -114,39 +114,42 @@ const cateringSalads = [
 ];
 
 const cateringAddOns = [
-  { name: 'GARLIC KNOTS', price: '10.95/dozen' },
-  { name: 'CANNOLI', price: '3.25 each' },
-  { name: 'CHICKEN', price: '4.00 each' },
-  { name: 'MEATBALL', price: '3.00 each' },
-  { name: 'SAUSAGE', price: '3.00 each' },
+  { name: 'GARLIC KNOTS (dozen)', price: '10.95' },
+  { name: 'CANNOLI (one)', price: '3.25' },
+  { name: 'CHICKEN (one)', price: '4.00' },
+  { name: 'MEATBALL (one)', price: '3.00' },
+  { name: 'SAUSAGE (one)', price: '3.00' },
 ];
 ---
 
-<section id="menu" class="px-8 md:px-16 py-16 bg-black border-b border-[#111]">
-  <div class="text-fire text-[9px] tracking-[4px] uppercase mb-4">— Menu</div>
+<section id="menu" class="px-8 md:px-16 py-16 bg-black">
+  <div class="flex items-center gap-3 mb-4">
+    <img src="/section-divider.svg" alt="" class="h-5 opacity-80" />
+    <span class="text-fire text-sm tracking-[4px] uppercase">Menu</span>
+  </div>
   <h2 class="font-serif font-black text-white text-2xl md:text-3xl mb-12">What We Bring</h2>
 
   <!-- SPECIALTY PIZZA -->
   <div class="mb-12">
     <div class="flex items-center gap-4 mb-4">
-      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Specialty Pizza</h3>
+      <h3 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Specialty Pizza</h3>
       <div class="flex-1 h-px bg-[#1a1a1a]"></div>
     </div>
-    <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 mb-2">
+    <div class="grid grid-cols-[1fr_4rem_4rem_4rem] gap-x-2 mb-2">
       <div></div>
-      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">SM/10"</div>
-      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">MED/14"</div>
-      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">LG/16"</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">SM/10"</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">MED/14"</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">LG/16"</div>
     </div>
     {specialtyPizzas.map((item) => (
-      <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 py-2 border-b border-[#0f0f0f]">
+      <div class="grid grid-cols-[1fr_4rem_4rem_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
         <div>
-          <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-          {item.desc && <div class="text-[#444] text-[10px] mt-0.5">{item.desc}</div>}
+          <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+          {item.desc && <div class="text-[#999] text-xs mt-0.5">{item.desc}</div>}
         </div>
-        <div class="text-[#888] text-xs text-right self-center">{item.sm}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.med}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.lg}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.sm}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.med}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.lg}</div>
       </div>
     ))}
   </div>
@@ -154,74 +157,73 @@ const cateringAddOns = [
   <!-- PIZZA -->
   <div class="mb-12">
     <div class="flex items-center gap-4 mb-4">
-      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Pizza</h3>
+      <h3 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Pizza</h3>
       <div class="flex-1 h-px bg-[#1a1a1a]"></div>
     </div>
-    <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 mb-2">
+    <div class="grid grid-cols-[1fr_4rem_4rem_4rem] gap-x-2 mb-2">
       <div></div>
-      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">SM</div>
-      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">MED</div>
-      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">LG</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">SM/10"</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">MED/14"</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">LG/16"</div>
     </div>
     {pizzaBase.map((item) => (
-      <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 py-2 border-b border-[#0f0f0f]">
+      <div class="grid grid-cols-[1fr_4rem_4rem_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
         <div>
-          <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-          {item.desc && <div class="text-[#444] text-[10px] mt-0.5">{item.desc}</div>}
+          <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+          {item.desc && <div class="text-[#999] text-xs mt-0.5">{item.desc}</div>}
         </div>
-        <div class="text-[#888] text-xs text-right self-center">{item.sm}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.med}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.lg}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.sm}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.med}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.lg}</div>
       </div>
     ))}
-    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-4 mb-2">Toppings (per topping)</div>
+    <div class="text-[#999] text-xs tracking-[2px] uppercase mt-4 mb-2">Toppings (per topping)</div>
     {pizzaToppings.map((item) => (
-      <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 py-2 border-b border-[#0f0f0f]">
+      <div class="grid grid-cols-[1fr_4rem_4rem_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
         <div>
-          <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-          {item.desc && <div class="text-[#444] text-[10px] mt-0.5">{item.desc}</div>}
+          <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+          {item.desc && <div class="text-[#999] text-xs mt-0.5">{item.desc}</div>}
         </div>
-        <div class="text-[#888] text-xs text-right self-center">{item.sm}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.med}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.lg}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.sm}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.med}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.lg}</div>
       </div>
     ))}
-    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-4 mb-2">Specialty Items</div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4">
-      {specialtyItems.map((item) => (
-        <div class="flex justify-between py-1.5 border-b border-[#0f0f0f]">
-          <span class="text-[#666] text-[10px]">{item.name}</span>
-          <span class="text-[#888] text-[10px] ml-2 shrink-0">{item.price}</span>
+    <div class="text-[#999] text-xs tracking-[2px] uppercase mt-4 mb-2">Specialty Items</div>
+    {specialtyItems.map((item) => (
+      <div class="grid grid-cols-[1fr_4rem] gap-x-2 py-1.5 border-b border-[#0f0f0f]">
+        <span class="text-[#bbb] text-xs">{item.name}</span>
+        <span class="text-[#bbb] text-xs text-center self-center">{item.price}</span>
+      </div>
+    ))}
+    <div class="text-[#999] text-xs tracking-[2px] uppercase mt-4 mb-2">Slices</div>
+    {slices.map((item) => (
+      <div class="grid grid-cols-[1fr_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+        <div>
+          <div class="text-white text-sm font-bold">{item.name}</div>
+          {item.desc && <div class="text-[#999] text-xs">{item.desc}</div>}
         </div>
-      ))}
-    </div>
-    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-4 mb-2">Slices</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
-      {slices.map((item) => (
-        <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
-          <div>
-            <div class="text-white text-xs font-bold">{item.name}</div>
-            {item.desc && <div class="text-[#444] text-[10px]">{item.desc}</div>}
-          </div>
-          <span class="text-[#888] text-xs ml-4 self-center shrink-0">{item.price}</span>
-        </div>
-      ))}
-    </div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.price}</div>
+      </div>
+    ))}
   </div>
 
   <!-- ENTREES -->
   <div class="mb-12">
     <div class="flex items-center gap-4 mb-4">
-      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Entrees</h3>
+      <h3 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Entrees</h3>
       <div class="flex-1 h-px bg-[#1a1a1a]"></div>
-      <span class="text-[#333] text-[9px] tracking-[1px] uppercase shrink-0">Med / Lg</span>
+    </div>
+    <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 mb-2">
+      <div></div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">MED</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">LG</div>
     </div>
     {entrees.map((item) => (
-      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
-        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-        <div class="text-[#888] text-xs ml-4 shrink-0">
-          {item.price ? item.price : `${item.med} / ${item.lg}`}
-        </div>
+      <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.price || item.med}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.lg || ''}</div>
       </div>
     ))}
   </div>
@@ -229,14 +231,19 @@ const cateringAddOns = [
   <!-- SALADS -->
   <div class="mb-12">
     <div class="flex items-center gap-4 mb-4">
-      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Salads</h3>
+      <h3 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Salads</h3>
       <div class="flex-1 h-px bg-[#1a1a1a]"></div>
-      <span class="text-[#333] text-[9px] tracking-[1px] uppercase shrink-0">Med / Lg</span>
+    </div>
+    <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 mb-2">
+      <div></div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">MED</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">LG</div>
     </div>
     {salads.map((item) => (
-      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
-        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-        <div class="text-[#888] text-xs ml-4 shrink-0">{item.med} / {item.lg}</div>
+      <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.med}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.lg}</div>
       </div>
     ))}
   </div>
@@ -244,14 +251,19 @@ const cateringAddOns = [
   <!-- SANDWICHES -->
   <div class="mb-12">
     <div class="flex items-center gap-4 mb-4">
-      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Sandwiches</h3>
+      <h3 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Sandwiches</h3>
       <div class="flex-1 h-px bg-[#1a1a1a]"></div>
-      <span class="text-[#333] text-[9px] tracking-[1px] uppercase shrink-0">Med / Lg</span>
+    </div>
+    <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 mb-2">
+      <div></div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">MED</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">LG</div>
     </div>
     {sandwiches.map((item) => (
-      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
-        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-        <div class="text-[#888] text-xs ml-4 shrink-0">{item.med} / {item.lg}</div>
+      <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.med}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.lg}</div>
       </div>
     ))}
   </div>
@@ -259,14 +271,14 @@ const cateringAddOns = [
   <!-- LUNCH SPECIALS -->
   <div class="mb-12">
     <div class="flex items-center gap-4 mb-4">
-      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Lila's Lunch Specials</h3>
+      <h3 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Lila's Lunch Specials</h3>
       <div class="flex-1 h-px bg-[#1a1a1a]"></div>
     </div>
-    <div class="text-[#444] text-[10px] tracking-[2px] uppercase mb-3">11 AM – 4 PM</div>
+    <div class="text-[#999] text-sm tracking-[2px] uppercase mb-3">11 AM – 4 PM</div>
     {lunchSpecials.map((item) => (
-      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
-        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-        <div class="text-[#888] text-xs ml-4 shrink-0">{item.price}</div>
+      <div class="grid grid-cols-[1fr_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.price}</div>
       </div>
     ))}
   </div>
@@ -274,14 +286,14 @@ const cateringAddOns = [
   <!-- ADD-ONS -->
   <div class="mb-12">
     <div class="flex items-center gap-4 mb-4">
-      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Add-Ons & Extras</h3>
+      <h3 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Add-Ons & Extras</h3>
       <div class="flex-1 h-px bg-[#1a1a1a]"></div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
       {addOns.map((item) => (
-        <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
-          <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-          <div class="text-[#888] text-xs ml-4 shrink-0">{item.price}</div>
+        <div class="grid grid-cols-[1fr_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+          <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+          <div class="text-[#bbb] text-sm text-center self-center">{item.price}</div>
         </div>
       ))}
     </div>
@@ -290,47 +302,55 @@ const cateringAddOns = [
   <!-- CATERING -->
   <div>
     <div class="flex items-center gap-4 mb-2">
-      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Catering</h3>
+      <h3 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Catering</h3>
       <div class="flex-1 h-px bg-[#1a1a1a]"></div>
     </div>
-    <div class="text-[#444] text-[10px] mb-6">Half Trays (Serves 10) · Full Trays (Serves 20)</div>
+    <div class="text-[#999] text-sm mb-6">Half Trays (Serves 10) · Full Trays (Serves 20)</div>
 
-    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mb-2">Entrees</div>
-    <div class="grid grid-cols-[1fr_auto_auto] gap-x-8 mb-1">
+    <div class="flex items-center gap-4 mb-2 mt-4">
+      <h4 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Entrees</h4>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+    </div>
+    <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 mb-1">
       <div></div>
-      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">Half</div>
-      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">Full</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">Half</div>
+      <div class="text-teal text-xs tracking-[1px] uppercase text-center">Full</div>
     </div>
     {cateringEntrees.map((item) => (
-      <div class="grid grid-cols-[1fr_auto_auto] gap-x-8 py-2 border-b border-[#0f0f0f]">
-        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.half}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.full}</div>
+      <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.half}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.full}</div>
       </div>
     ))}
 
-    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-8 mb-2">Salads</div>
+    <div class="flex items-center gap-4 mb-2 mt-8">
+      <h4 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Salads</h4>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+    </div>
     {cateringSalads.map((item) => (
-      <div class="grid grid-cols-[1fr_auto_auto] gap-x-8 py-2 border-b border-[#0f0f0f]">
-        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.half}</div>
-        <div class="text-[#888] text-xs text-right self-center">{item.full}</div>
+      <div class="grid grid-cols-[1fr_4rem_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.half}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.full}</div>
       </div>
     ))}
 
-    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-8 mb-2">Add-Ons</div>
+    <div class="flex items-center gap-4 mb-2 mt-8">
+      <h4 class="text-fire text-sm tracking-[3px] uppercase font-sans shrink-0">Add-Ons</h4>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+    </div>
     {cateringAddOns.map((item) => (
-      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
-        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
-        <div class="text-[#888] text-xs ml-4 shrink-0">{item.price}</div>
+      <div class="grid grid-cols-[1fr_4rem] gap-x-2 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-sm font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#bbb] text-sm text-center self-center">{item.price}</div>
       </div>
     ))}
   </div>
 </section>
 
-<!-- Diamond divider -->
-<div class="flex items-center px-8 py-0">
-  <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, #222)"></div>
-  <div class="w-2 h-2 bg-fire mx-2 rotate-45"></div>
-  <div class="flex-1 h-px" style="background: linear-gradient(90deg, #222, transparent)"></div>
+<div class="flex items-center px-8 md:px-16 py-4">
+  <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, #2ec4b6)"></div>
+  <div class="w-2.5 h-2.5 bg-teal mx-3 rotate-45 shrink-0" style="box-shadow: 0 0 10px rgba(46,196,182,0.4)"></div>
+  <div class="flex-1 h-px" style="background: linear-gradient(90deg, #2ec4b6, transparent)"></div>
 </div>
