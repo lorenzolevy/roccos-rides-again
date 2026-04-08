@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@theme {
+  --color-fire: #e8890a;
+  --color-teal: #2ec4b6;
+  --color-smoke: #555555;
+  --color-ember: #1a0d00;
+  --font-family-serif: Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Offset anchor targets below sticky nav (~72px tall) */
+:target {
+  scroll-margin-top: 72px;
+}
