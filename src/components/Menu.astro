@@ -1,58 +1,328 @@
 ---
-const categories = [
-  {
-    name: 'Pizza',
-    items: [
-      'Plain Pie',
-      'Sicilian',
-      '— update with full menu items —',
-    ],
-  },
-  {
-    name: 'Entrees',
-    items: [
-      '— update with full menu items —',
-    ],
-  },
-  {
-    name: 'Salads',
-    items: [
-      '— update with full menu items —',
-    ],
-  },
-  {
-    name: 'Sandwiches',
-    items: [
-      '— update with full menu items —',
-    ],
-  },
-  {
-    name: 'Catering',
-    items: [
-      '— update with full menu items —',
-    ],
-  },
-  {
-    name: 'Add-Ons',
-    items: [
-      '— update with full menu items —',
-    ],
-  },
+const specialtyPizzas = [
+  { name: "ROCCO'S COMBO", desc: 'Olive, Onion, Mushroom, Bell Pepper, Pepperoni, Sausage, Meatball', sm: '15.95', med: '21.95', lg: '24.95' },
+  { name: 'BBQ CHICKEN', desc: 'BBQ, Red Onion, Chicken', sm: '15.95', med: '21.95', lg: '24.95' },
+  { name: 'CHICKEN HUNTER', desc: 'Chicken, Roasted Red Peppers, Onions', sm: '15.95', med: '21.95', lg: '24.95' },
+  { name: 'GLADIATOR', desc: 'Sausage, Meatballs, Pepperoni', sm: '15.95', med: '21.95', lg: '24.95' },
+  { name: 'TIP OF THE BOOT', desc: 'Olive, Onion, Mushroom, Bell Pepper, Eggplant', sm: '15.50', med: '20.50', lg: '22.50' },
+  { name: 'CORLEONE', desc: 'Prosciutto and Pineapple', sm: '15.95', med: '19.95', lg: '21.95' },
+];
+
+const pizzaBase = [
+  { name: 'CHEESE', desc: 'Delicious whole milk mozzarella', sm: '12.95', med: '17.00', lg: '20.00' },
+];
+
+const pizzaToppings = [
+  { name: 'VEGGIES', sm: '1.00', med: '1.75', lg: '2.00' },
+  { name: 'MEATS', desc: 'Meatball, Pepperoni, Sausage, Extra Cheese', sm: '1.00', med: '2.00', lg: '2.25' },
+];
+
+const specialtyItems = [
+  { name: 'Prosciutto', price: '4.95' },
+  { name: 'Anchovies', price: '2.50' },
+  { name: 'Artichoke Hearts', price: '2.95' },
+  { name: 'Scampi', price: '9.95' },
+  { name: 'Chicken', price: '4.50' },
+  { name: 'Pesto Sauce', price: '3.95' },
+  { name: 'White Sauce', price: '3.95' },
+];
+
+const slices = [
+  { name: 'CHEESE SLICE', price: '4.00' },
+  { name: 'PEPPERONI SLICE', price: '4.50' },
+  { name: "ROCCO'S CHEESE COMBO", desc: '2 cheese slices and a soda', price: '9.00' },
+  { name: "ROCCO'S PEPPERONI COMBO", desc: '2 pepperoni slices and a soda', price: '10.00' },
+];
+
+const entrees = [
+  { name: 'FETTUCCINI ALFREDO', med: '11.95', lg: '13.95' },
+  { name: 'LASAGNA', med: '10.95', lg: '12.95' },
+  { name: 'BAKED ZITI', med: '10.95', lg: '12.95' },
+  { name: 'PASTA MEATBALLS OR SAUSAGE', med: '11.95', lg: '13.95' },
+  { name: 'EGGPLANT PARMIGIANA', med: '11.50', lg: '13.50' },
+  { name: 'PENNE MARINARA', med: '10.95', lg: '12.95' },
+  { name: 'PENNE PESTO WITH CHICKEN', price: '16.95' },
+  { name: "LORENZINI'S LINGUINE", med: '9.95', lg: '11.95' },
+  { name: "ROWAN'S RAVIOLI MARINARA OR PESTO", med: '11.95', lg: '13.95' },
+  { name: 'CHICKEN SAUTE', price: '16.95' },
+  { name: 'CHICKEN PARMIGIANA', price: '16.95' },
+];
+
+const salads = [
+  { name: 'HOUSE SALAD', med: '7.95', lg: '10.95' },
+  { name: 'CAESAR SALAD', med: '7.95', lg: '10.95' },
+  { name: 'GREEK SALAD', med: '9.95', lg: '11.95' },
+  { name: 'VEGGIE ANTIPASTO', med: '11.95', lg: '13.95' },
+  { name: 'ANTIPASTO', med: '12.95', lg: '15.95' },
+];
+
+const sandwiches = [
+  { name: 'MEATBALL OR SAUSAGE', med: '11.25', lg: '13.25' },
+  { name: 'TURKEY HERO', med: '11.25', lg: '13.25' },
+  { name: "ROCCO'S HERO", med: '11.25', lg: '13.25' },
+  { name: 'EGGPLANT PARMIGIANA', med: '11.25', lg: '13.25' },
+  { name: 'CHICKEN PARMIGIANA', med: '12.95', lg: '14.95' },
+  { name: 'HAM AND CHEESE', med: '11.25', lg: '13.25' },
+  { name: 'TUNA SALAD', med: '11.25', lg: '13.25' },
+];
+
+const lunchSpecials = [
+  { name: '3S — SLICE, SODA, SALAD', price: '7.50' },
+  { name: 'SMALL ENTREE & SIDE SALAD', price: '11.95' },
+  { name: 'SMALL SANDWICH, CHIPS & DRINK', price: '11.25' },
+  { name: 'LARGE SANDWICH, CHIPS & DRINK', price: '13.25' },
+];
+
+const addOns = [
+  { name: 'SIDE SALAD', price: '3.25' },
+  { name: 'ROCCO ROLLS — 6', price: '6.95' },
+  { name: 'ROCCO ROLLS — 12', price: '10.95' },
+  { name: 'MEATBALLS', price: '7.95' },
+  { name: 'SAUSAGE', price: '7.95' },
+  { name: 'SAUTÉED VEGGIES', price: '8.95' },
+  { name: 'SAUCE, 4 OZ.', price: '2.50' },
+  { name: 'SAUCE, 16 OZ.', price: '8.25' },
+  { name: 'SAUCE, 24 OZ.', price: '11.95' },
+  { name: 'CAESAR DRESSING, 16 OZ.', price: '9.95' },
+  { name: 'CANNOLI SM', price: '3.25' },
+  { name: 'CANNOLI LG', price: '4.50' },
+  { name: 'BOTTLED WATER', price: '1.50' },
+  { name: 'SODA', price: '1.50' },
+];
+
+const cateringEntrees = [
+  { name: 'PASTA MARINARA', half: '50', full: '75' },
+  { name: 'LINGUINE, GARLIC & OLIVE OIL', half: '50', full: '75' },
+  { name: 'BOW TIE PASTA, SPINACH & FRESH TOMATOES', half: '60', full: '80' },
+  { name: 'LASAGNA BOLOGNESE', half: '95', full: '140' },
+  { name: 'LASAGNA, SPINACH AND MUSHROOM', half: '80', full: '130' },
+  { name: 'LASAGNA, THREE CHEESE', half: '60', full: '110' },
+  { name: 'BAKED ZITI, RICOTTA & MARINARA', half: '50', full: '100' },
+  { name: 'BAKED ZITI, SPINACH AND MUSHROOM', half: '75', full: '115' },
+  { name: 'EGGPLANT PARMIGIANA', half: '70', full: '100' },
+  { name: 'CHICKEN PARMIGIANA', half: '90', full: '140' },
+  { name: 'CHICKEN ARTICHOKES IN BUERRE BLANC', half: '120', full: '150' },
+];
+
+const cateringSalads = [
+  { name: 'HOUSE SALAD', half: '35', full: '50' },
+  { name: 'MIXED BABY GREENS', half: '40', full: '60' },
+  { name: 'CAESAR SALAD', half: '40', full: '60' },
+  { name: 'CHICKEN CAESAR SALAD', half: '60', full: '80' },
+  { name: 'ANTIPASTO, VEGGIE', half: '50', full: '80' },
+  { name: 'ANTIPASTO, ITALIAN COLD CUTS', half: '60', full: '100' },
+];
+
+const cateringAddOns = [
+  { name: 'GARLIC KNOTS', price: '10.95/dozen' },
+  { name: 'CANNOLI', price: '3.25 each' },
+  { name: 'CHICKEN', price: '4.00 each' },
+  { name: 'MEATBALL', price: '3.00 each' },
+  { name: 'SAUSAGE', price: '3.00 each' },
 ];
 ---
+
 <section id="menu" class="px-8 md:px-16 py-16 bg-black border-b border-[#111]">
   <div class="text-fire text-[9px] tracking-[4px] uppercase mb-4">— Menu</div>
-  <h2 class="font-serif font-black text-white text-2xl md:text-3xl mb-8">What We Bring</h2>
+  <h2 class="font-serif font-black text-white text-2xl md:text-3xl mb-12">What We Bring</h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-    {categories.map((cat) => (
-      <div class="border border-[#1a1a1a] p-4 hover:border-[#2a2a2a] transition-colors duration-200">
-        <h3 class="text-white text-sm font-bold tracking-wide mb-3">{cat.name}</h3>
-        <ul class="space-y-1">
-          {cat.items.map((item) => (
-            <li class="text-[#555] text-xs leading-relaxed">{item}</li>
-          ))}
-        </ul>
+  <!-- SPECIALTY PIZZA -->
+  <div class="mb-12">
+    <div class="flex items-center gap-4 mb-4">
+      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Specialty Pizza</h3>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+    </div>
+    <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 mb-2">
+      <div></div>
+      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">SM/10"</div>
+      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">MED/14"</div>
+      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">LG/16"</div>
+    </div>
+    {specialtyPizzas.map((item) => (
+      <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 py-2 border-b border-[#0f0f0f]">
+        <div>
+          <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+          {item.desc && <div class="text-[#444] text-[10px] mt-0.5">{item.desc}</div>}
+        </div>
+        <div class="text-[#888] text-xs text-right self-center">{item.sm}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.med}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.lg}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- PIZZA -->
+  <div class="mb-12">
+    <div class="flex items-center gap-4 mb-4">
+      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Pizza</h3>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+    </div>
+    <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 mb-2">
+      <div></div>
+      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">SM</div>
+      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">MED</div>
+      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">LG</div>
+    </div>
+    {pizzaBase.map((item) => (
+      <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 py-2 border-b border-[#0f0f0f]">
+        <div>
+          <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+          {item.desc && <div class="text-[#444] text-[10px] mt-0.5">{item.desc}</div>}
+        </div>
+        <div class="text-[#888] text-xs text-right self-center">{item.sm}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.med}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.lg}</div>
+      </div>
+    ))}
+    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-4 mb-2">Toppings (per topping)</div>
+    {pizzaToppings.map((item) => (
+      <div class="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 py-2 border-b border-[#0f0f0f]">
+        <div>
+          <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+          {item.desc && <div class="text-[#444] text-[10px] mt-0.5">{item.desc}</div>}
+        </div>
+        <div class="text-[#888] text-xs text-right self-center">{item.sm}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.med}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.lg}</div>
+      </div>
+    ))}
+    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-4 mb-2">Specialty Items</div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4">
+      {specialtyItems.map((item) => (
+        <div class="flex justify-between py-1.5 border-b border-[#0f0f0f]">
+          <span class="text-[#666] text-[10px]">{item.name}</span>
+          <span class="text-[#888] text-[10px] ml-2 shrink-0">{item.price}</span>
+        </div>
+      ))}
+    </div>
+    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-4 mb-2">Slices</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
+      {slices.map((item) => (
+        <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
+          <div>
+            <div class="text-white text-xs font-bold">{item.name}</div>
+            {item.desc && <div class="text-[#444] text-[10px]">{item.desc}</div>}
+          </div>
+          <span class="text-[#888] text-xs ml-4 self-center shrink-0">{item.price}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ENTREES -->
+  <div class="mb-12">
+    <div class="flex items-center gap-4 mb-4">
+      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Entrees</h3>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+      <span class="text-[#333] text-[9px] tracking-[1px] uppercase shrink-0">Med / Lg</span>
+    </div>
+    {entrees.map((item) => (
+      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#888] text-xs ml-4 shrink-0">
+          {item.price ? item.price : `${item.med} / ${item.lg}`}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- SALADS -->
+  <div class="mb-12">
+    <div class="flex items-center gap-4 mb-4">
+      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Salads</h3>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+      <span class="text-[#333] text-[9px] tracking-[1px] uppercase shrink-0">Med / Lg</span>
+    </div>
+    {salads.map((item) => (
+      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#888] text-xs ml-4 shrink-0">{item.med} / {item.lg}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- SANDWICHES -->
+  <div class="mb-12">
+    <div class="flex items-center gap-4 mb-4">
+      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Sandwiches</h3>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+      <span class="text-[#333] text-[9px] tracking-[1px] uppercase shrink-0">Med / Lg</span>
+    </div>
+    {sandwiches.map((item) => (
+      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#888] text-xs ml-4 shrink-0">{item.med} / {item.lg}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- LUNCH SPECIALS -->
+  <div class="mb-12">
+    <div class="flex items-center gap-4 mb-4">
+      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Lila's Lunch Specials</h3>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+    </div>
+    <div class="text-[#444] text-[10px] tracking-[2px] uppercase mb-3">11 AM – 4 PM</div>
+    {lunchSpecials.map((item) => (
+      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#888] text-xs ml-4 shrink-0">{item.price}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- ADD-ONS -->
+  <div class="mb-12">
+    <div class="flex items-center gap-4 mb-4">
+      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Add-Ons & Extras</h3>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
+      {addOns.map((item) => (
+        <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
+          <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+          <div class="text-[#888] text-xs ml-4 shrink-0">{item.price}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- CATERING -->
+  <div>
+    <div class="flex items-center gap-4 mb-2">
+      <h3 class="text-fire text-[10px] tracking-[3px] uppercase font-sans shrink-0">Catering</h3>
+      <div class="flex-1 h-px bg-[#1a1a1a]"></div>
+    </div>
+    <div class="text-[#444] text-[10px] mb-6">Half Trays (Serves 10) · Full Trays (Serves 20)</div>
+
+    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mb-2">Entrees</div>
+    <div class="grid grid-cols-[1fr_auto_auto] gap-x-8 mb-1">
+      <div></div>
+      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">Half</div>
+      <div class="text-[#333] text-[9px] tracking-[1px] uppercase text-right">Full</div>
+    </div>
+    {cateringEntrees.map((item) => (
+      <div class="grid grid-cols-[1fr_auto_auto] gap-x-8 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.half}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.full}</div>
+      </div>
+    ))}
+
+    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-8 mb-2">Salads</div>
+    {cateringSalads.map((item) => (
+      <div class="grid grid-cols-[1fr_auto_auto] gap-x-8 py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.half}</div>
+        <div class="text-[#888] text-xs text-right self-center">{item.full}</div>
+      </div>
+    ))}
+
+    <div class="text-[#333] text-[9px] tracking-[2px] uppercase mt-8 mb-2">Add-Ons</div>
+    {cateringAddOns.map((item) => (
+      <div class="flex justify-between py-2 border-b border-[#0f0f0f]">
+        <div class="text-white text-xs font-bold tracking-wide">{item.name}</div>
+        <div class="text-[#888] text-xs ml-4 shrink-0">{item.price}</div>
       </div>
     ))}
   </div>
